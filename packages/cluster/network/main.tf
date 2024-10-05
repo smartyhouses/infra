@@ -252,8 +252,8 @@ resource "google_compute_global_forwarding_rule" "https" {
   name                  = "${var.prefix}forwarding-rule-https"
   target                = google_compute_target_https_proxy.default.self_link
   load_balancing_scheme = "EXTERNAL_MANAGED"
-  port_range = "443"
-  labels     = var.labels
+  port_range            = "443"
+  labels                = var.labels
 }
 
 
@@ -432,7 +432,7 @@ resource "google_compute_firewall" "orch_firewall_ingress" {
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "8080", var.nomad_port, "3001", "3002", "3003", "30006", "44313", "50001", "8500"]
+    ports    = ["80", "8080", var.nomad_port, "3001", "3002", "3003", "44313", "50001", "8500"]
   }
 
   priority = 999
